@@ -1,0 +1,5 @@
+SELECT 
+GroupId,
+Id,
+UserOrGroupId
+FROM GroupMember where UserOrGroupId = '%1$s' and Group.Type = 'Queue'

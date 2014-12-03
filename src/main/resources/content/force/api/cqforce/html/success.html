@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="shortcut icon" href="img/Appicon_Hub_16.ico" />
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <script type="text/javascript">
+
+        function onLoad() {
+            // Trigger self close in 1 second
+            //setTimeout(selfClose, 1000);
+
+            try {
+                // Execute callback defined in the opener's global HUB object
+                window.opener.Hub.callbackFromSalesForceAuthPopup();
+            } catch (error) {}
+        }
+
+        var isIE = false;
+    </script>
+
+    <!--[if IE]>
+    <script type="text/javascript">
+        isIE = true;
+    </script>
+    <![endif]-->
+
+</head>
+<body onload="onLoad()">
+    <script>
+        // Check SVG support in browser
+        var supportsSVG = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1");
+
+        // Add css class to body tag based on supporting/not supporting SVG and if it is IE/non IE browser
+        document.getElementsByTagName("body")[0].className += (supportsSVG)?" svg":" no-svg";
+    </script>
+    <div class="container">
+        <div class="box">
+            <div class="banner">
+                <div class="header">
+                    <span id="headerIco" class="header-ico"></span>
+                    <span id="headerTitle" class="header-title">
+                        Account Confirmation
+                    </span>
+                </div>
+                <div class="banner-logo"></div>
+            </div>
+            <div class="message-box">
+                <div id="messageTitle" class="title">Success!</div>
+                <div id="messageBody" class="message">You have successfully linked your Salesforce.com account. Please close this window and return to the application.</div><br>
+            </div>
+            <div class="hseparator"></div>
+            <div class="footer"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+SELECT
+    Id, Name, FirstName, LastName, Username
+FROM
+    User
+WHERE
+    IsActive = TRUE and Profile.UserType = 'Standard'
+

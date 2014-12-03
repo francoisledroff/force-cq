@@ -1,0 +1,112 @@
+<html>
+<head>
+    <script src="/content/libs/jquery/1.8.3/jquery.js"></script>
+    <script type="text/javascript">
+
+        // Popup window code
+        function newPopup(url) {
+            popUpWindow = window.open(
+                url,'popUpWindow','height=700,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+        }
+
+        var TestDrive = {
+            url:{
+                sfAuth:"/content/hub_approval/api/dat/apiauth.json",
+                sfRevoke:"/content/hub_approval/api/dat/authRevoke.json",
+
+            },
+            getSFAnonymousAuthUrl:function (id) {
+                return this.getUrl(this.url.sfAuth, this.getParamValue(id), "userid");
+            },
+            getSFRevokeUrl:function (id) {
+                return this.getUrl(this.url.sfRevoke, this.getParamValue(id), "userid");
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<pre>
+
+                                            <b>CQ Force API test drive </b>
+                                            ==========================================
+
+
+Here is a few links and context for you to test drive the Adobe Hub Approval API.
+
+Login API
+=========
+    login to CQ first
+
+
+SalesForce API call
+===================
+    Our implementations leverages a force-rest-api felix bundle we made available
+    on github at <a href="https://github.com/francoisledroff/force-rest-api">
+    https://github.com/francoisledroff/force-rest-api</a>
+
+    Here our Hub endpoints:
+
+    SalesForce authentication
+    =========================
+
+
+        <a href="JavaScript:newPopup('dat/apiauth.json');">dat/apiauth.json</a>  (in a popup window)
+        This dat/apiauth.json node is mapped with out SalesForce Authentication servlet.
+
+        <b>https://yourserver.com/content/force/api/dat/apiauth.json
+            is the redirect_uri you have to give to SalesForce,
+            through the admin console (develop>Remote access)
+
+            That's why to make this work on your localhost, you need the following:
+        * have https enabled
+        * redirect yourserver.com to 127.0.0.1, for that you can edit your etc/host file
+        </b>
+
+        You'll find more details on the SalesForces oAuth flow
+    <a href="https://developer.salesforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com#Obtaining_an_Access_Token_in_a_Web_Application_.28Web_Server_Flow.29">
+        salesforce developer docs</a>
+
+
+        Once you/the-user have a valid oAuth SalesForce token stored within userProfile jcr repository
+        So you/the-user will only need to do the above once (unless you go revoke the token from SalesForce).
+        Next time, the dat/salesforce endpoints can be hit directly:
+
+
+    Anonymous SalesForce authentication with the userid as a request parameter
+    ==========================================================================
+        URL: <b>dat/apiauth.json?userid=LdapUserId</b>
+        <label>LdapUserId </label><input type="text" id="sfUserIdAuth"><input type="button" value="Authenticate" onclick="newPopup(TestDrive.getSFAnonymousAuthUrl('sfUserIdAuth'))"/> (opens in a popup window)
+
+    Anonymous SalesForce revoke session with the userid as a request parameter
+    ==========================================================================
+        URL: <b>dat/authRevoke.json?userid=LdapUserId</b>
+        <label>LdapUserId </label><input type="text" id="sfUserIdRevoke"><input type="button" value="Revoke session" onclick="newPopup(TestDrive.getSFRevokeUrl('sfUserIdRevoke'))"/> (opens in a popup window)
+
+    Identity
+    =========
+        <a href="cqforce/identity.json" target="_blank">dat/identity.json</a>
+        This endpoint proxy the identity salesforce rest endpoint and fetch the user salesForce Identity in a json format
+        This could be called by the UI to find out
+            * if you/the-user authorized the AdobeHub application into SalesForce,
+            * if the Hub can fetch your SalesForce profile
+
+
+    Groups
+    ==========
+        <a href="cqforce/groups.json" target="_blank">dat/groups.json</a>
+        This endpoint will fetch all the groups the logged-in user belongs to
+        the associated query is <a href="cqforce/queries/getGroups/query.soql.txt">dat/queries/getGroups/query.soql.txt</a>
+
+
+    Users list
+    ==========
+        <a href="cqforce/users.json" target="_blank">dat/users.json</a>
+        The associated query is <a href="cqforce/queries/getUsers/query.soql.txt">dat/queries/getUsers/query.soql.txt</a>
+
+
+
+</pre>
+</body>
+</html>

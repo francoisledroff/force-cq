@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+          jcr:primaryType="nt:unstructured">
+    <apiauth
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="com/adobe/cqforce/force/aapiauth">
+        <rep:policy/>
+    </apiauth>
+    <authRevoke
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="com/adobe/cqforce/force/authRevoke">
+        <rep:policy/>
+    </authRevoke>
+    <identity
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="com/adobe/cqforce/force/identity">
+    </identity>
+    <groups
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="com/adobe/cqforce/force/groups">
+    </groups>
+    <users
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="com/adobe/cqforce/force/users">
+    </users>
+
+    <queries
+            jcr:primaryType="nt:unstructured">
+    </queries>
+    <rep:policy/>
+</jcr:root>

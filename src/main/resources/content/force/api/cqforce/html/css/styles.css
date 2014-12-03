@@ -1,0 +1,132 @@
+body {
+    background-color: rgb(233, 233, 233);
+}
+
+.box {
+    width: 698px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(191, 191, 191);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Arial", "Droid Sans", sans-serif;
+}
+
+.banner {
+    float: left;
+    height: 79px;
+    width: 698px;
+    background-image: url(../img/AccountBanner_698.jpg);
+}
+
+.header {
+    float: left;
+    height: 46px;
+    margin: 17px 0 0 21px;
+    clear: none;
+    width: 240px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.75;
+}
+
+.header-ico {
+    float: left;
+    height: 46px;
+    width: 46px;
+}
+
+.svg .header-ico {
+    background-image: url(../img/Icn_check_24.svg);
+}
+
+.no-svg .header-ico {
+    background-image: url(../img/Icn_check.png);
+}
+
+.svg .error {
+    background-image: url(../img/Icn_error_24.svg);
+}
+
+.no-svg .error {
+    background-image: url(../img/Icn_error.png);
+}
+
+.header-title {
+    float: left;
+    font-size: 18px;
+    margin-top: 12px;
+}
+
+.banner-logo {
+    float: right;
+    width: 30px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.svg .banner-logo {
+    background-image: url(../img/Adobelogo_sm.svg);
+}
+
+.no-svg .banner-logo {
+    background-image: url(../img/Adobelogo_sm.png);
+}
+
+.message-box {
+    padding: 20px;
+}
+
+.title {
+    font-size: 15px;
+    color: rgb(17, 17, 17);
+    font-weight: bold;
+    margin-top: 80px;
+}
+
+.message {
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(102, 102, 102);
+}
+
+.hseparator {
+    height: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgb(221, 221, 221);
+}
+
+.footer {
+    margin-top: 12px;
+    height: 82px;
+    width: 204px;
+}
+
+.svg .footer {
+    background-image: url(../img/AccountBanner_footer.svg);
+}
+
+.no-svg .footer {
+    background-image: url(../img/AccountBanner_footer.jpg);
+}
+
+
+/***********************************************************************************************************************
+    Media queries
+***********************************************************************************************************************/
+
+@media only screen and (max-width: 698px) {
+
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .banner {
+        width: 100%;
+    }
+}
