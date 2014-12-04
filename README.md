@@ -1,7 +1,7 @@
 force-cq
 ========
 
-A cq5.5 bundle leveraging https://github.com/francoisledroff/force-rest-api
+A AEM/CQ 5.5 bundle leveraging https://github.com/francoisledroff/force-rest-api
 
 Give a try:
 
